@@ -4,7 +4,7 @@ const questions = [
   { question: "What's my zodiac sign?", answer: "pisces" },
   { question: "When is my birthday?", answer: ["feb 25, 2006", "feb 25 2006"] },
   { question: "What's my favorite anime?", answer: "one piece" },
-  { question: "What's my favorite anime character?", answer: "shanks" },
+  { question: "Who's my favorite anime character?", answer: "shanks" },
   { question: "Coffee or Tea?", answer: "coffee" },
   { question: "Movie or Gaming?", answer: "gaming" },
   { question: "Do I prefer cats or dogs?", answer: "both" },
