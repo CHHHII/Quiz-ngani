@@ -7,7 +7,7 @@ const questions = [
   { question: "Who's my favorite anime character?", answer: "shanks" },
   { question: "Coffee or Tea?", answer: "coffee" },
   { question: "Movie or Gaming?", answer: "gaming" },
-  { question: "Do I prefer cats or dogs?", answer: "both" },
+  { question: "Do I prefer cats or dogs?", answer: ["both","cats", "dogs"] },
   { question: "What's my favorite drink?", answer: "coke" },
   { question: "What's my favorite band?", answer: ["linkin park", "coldplay", "green day"] },
   { 
