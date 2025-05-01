@@ -10,8 +10,13 @@ const questions = [
   { question: "Do I prefer cats or dogs?", answer: "both" },
   { question: "What's my favorite drink?", answer: "coke" },
   { question: "What's my favorite band?", answer: ["linkin park", "coldplay", "green day"] },
-  { question: "Who's my favorite person?", 
-    answer:  "cathcath and mah bestfriend jassy"},
+  { 
+    question: "Who's my favorite person?", 
+    answer: [
+      "cath", "cathcath", "catherine", "catherine anne",
+      "jassy", "jas", "jasmin", "ayekah"
+    ]
+  },
   { question: "What's the food I absolutely hate?", answer: ["kimchi", "paa ng manok"] },
   { question: "Do I believe in Ghosts?", answer: "no" },
   { question: "One best friend or Large Group Friend?", answer: "one best friend" }
@@ -76,9 +81,11 @@ function finishQuiz() {
   userAnswers.forEach((entry, index) => {
     resultHTML += `<li>
       <strong>Q${index + 1}: ${entry.question}</strong><br>
-      Your answer: <span style="color:${entry.isCorrect ? 'green' : 'red'}">${entry.yourAnswer}</span><br>
-      Correct answer: ${entry.correctAnswer}
-    </li><br>`;
+      Your answer: <span style="color:${entry.isCorrect ? 'green' : 'red'}">${entry.yourAnswer}</span><br>`;
+    if (!entry.isCorrect) {
+      resultHTML += `Correct answer: ${entry.correctAnswer}<br>`;
+    }
+    resultHTML += `</li><br>`;
   });
   resultHTML += `</ul>`;
 
