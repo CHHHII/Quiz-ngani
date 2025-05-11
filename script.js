@@ -12,11 +12,7 @@ const questions = [
   { question: "What's my favorite band?", answer: ["linkin park", "coldplay", "green day"] },
   { 
     question: "Who's my favorite person?", 
-    answer: [
-      "cath", "cathcath", "catherine", "catherine anne",
-      "jassy", "jas", "jasmin", "ayekah"
-    ]
-  },
+    answer: "mah pretty bossing" },
   { question: "What's the food I absolutely hate?", answer: ["kimchi", "paa ng manok"] },
   { question: "Do I believe in Ghosts?", answer: "no" },
   { question: "One best friend or Large Group Friend?", answer: "one best friend" }
