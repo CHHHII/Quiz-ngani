@@ -21,7 +21,6 @@ const questions = [
 let currentQuestion = 0;
 let score = 0;
 let userName = "";
-let userAnswers = [];
 
 document.getElementById('startBtn').addEventListener('click', () => {
   userName = document.getElementById('name').value.trim();
@@ -35,6 +34,45 @@ document.getElementById('startBtn').addEventListener('click', () => {
 document.getElementById('nextBtn').addEventListener('click', () => {
   const userAnswer = document.getElementById('answerInput').value
     .trim()
+    .toLowerCase()
+    .replaceAll(",", "");
+
+  if (!userAnswer) return alert("Please type an answer");
+
+  let correct = questions[currentQuestion].answer;
+  let isCorrect = false;
+
+  if (Array.isArray(correct)) {
+    isCorrect = correct.some(ans =>
+      userAnswer === ans.toLowerCase().replaceAll(",", "")
+    );
+  } else {
+    isCorrect = userAnswer === correct.toLowerCase();
+  }
+
+  if (isCorrect) score++;
+
+  document.getElementById('answerInput').value = '';
+  currentQuestion++;
+
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    endQuiz();
+  }
+});
+
+function showQuestion() {
+  document.getElementById('question').textContent = questions[currentQuestion].question;
+}
+
+function endQuiz() {
+  document.getElementById('questionContainer').style.display = 'none';
+  document.getElementById('resultContainer').style.display = 'block';
+
+  document.getElementById('score').textContent =
+    `${userName}, your score is: ${score}/${questions.length}`;
+}    .trim()
     .toLowerCase()
     .replaceAll(",", "");
 
