@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Well Do You Know Me?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Start Screen -->
+    <div id="quizArea">
+      <h1>Bawal maling sagot</h1>
+      <input type="text" id="name" placeholder="Enter your name" />
+      <button id="startBtn">Start Quiz</button>
+    </div>
+
+    <!-- Question Screen -->
+    <div id="questionContainer" style="display:none;">
+      <p id="question"></p>
+      <input type="text" id="answerInput" placeholder="Your answer..." />
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="resultContainer" style="display:none;">
+      <h2 id="score"></h2>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
