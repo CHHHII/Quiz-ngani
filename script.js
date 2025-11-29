@@ -22,19 +22,67 @@ let currentQuestion = 0;
 let score = 0;
 let userName = "";
 
-document.getElementById('startBtn').addEventListener('click', () => {
-  userName = document.getElementById('name').value.trim();
-  if (!userName) return alert("Please enter your name");
+const startBtn = document.getElementById('startBtn');
+const nextBtn = document.getElementById('nextBtn');
+const quizArea = document.getElementById('quizArea');
+const questionContainer = document.getElementById('questionContainer');
+const questionEl = document.getElementById('question');
+const answerInput = document.getElementById('answerInput');
+const resultContainer = document.getElementById('resultContainer');
+const scoreEl = document.getElementById('score');
 
-  document.getElementById('quizArea').style.display = 'none';
-  document.getElementById('questionContainer').style.display = 'block';
+// Start quiz
+startBtn.addEventListener('click', () => {
+  userName = document.getElementById('name').value.trim();
+  if (!userName) {
+    alert("Please enter your name");
+    return;
+  }
+  quizArea.style.display = 'none';
+  questionContainer.style.display = 'block';
   showQuestion();
 });
 
-document.getElementById('nextBtn').addEventListener('click', () => {
-  const userAnswer = document.getElementById('answerInput').value
-    .trim()
-    .toLowerCase()
+// Show current question
+function showQuestion() {
+  questionEl.textContent = questions[currentQuestion].question;
+  answerInput.value = '';
+  answerInput.focus();
+}
+
+// Next question
+nextBtn.addEventListener('click', () => {
+  const userAnswer = answerInput.value.trim().toLowerCase();
+  if (!userAnswer) {
+    alert("Please type an answer");
+    return;
+  }
+
+  const correctAnswer = questions[currentQuestion].answer;
+  let isCorrect = false;
+
+  if (Array.isArray(correctAnswer)) {
+    isCorrect = correctAnswer.some(ans => ans.toLowerCase() === userAnswer);
+  } else {
+    isCorrect = correctAnswer.toLowerCase() === userAnswer;
+  }
+
+  if (isCorrect) score++;
+
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    endQuiz();
+  }
+});
+
+// End quiz and show score
+function endQuiz() {
+  questionContainer.style.display = 'none';
+  resultContainer.style.display = 'block';
+  scoreEl.textContent = `${userName}, your score is: ${score}/${questions.length}`;
+}    .toLowerCase()
     .replaceAll(",", "");
 
   if (!userAnswer) return alert("Please type an answer");
