@@ -2,7 +2,7 @@ const questions = [
   { question: "What's my favorite color?", answer: "black" },
   { question: "What's my dream career?", answer: "civil engineer" },
   { question: "What's my zodiac sign?", answer: "pisces" },
-  { question: "When is my birthday?", answer: ["feb 25, 2006", "feb 25 2006"] },
+  { question: "When is my birthday?", answer: ["feb 25, 2006", "feb 25"] },
   { question: "What's my favorite anime?", answer: "one piece" },
   { question: "Who's my favorite anime character?", answer: "shanks" },
   { question: "Coffee or Tea?", answer: "coffee" },
@@ -12,12 +12,13 @@ const questions = [
   { question: "What's my favorite band?", answer: ["linkin park", "coldplay", "green day"] },
   { 
     question: "Who's my favorite person?", 
-    answer: "mah pretty bossing" },
+    answer: "Catherine" },
   { question: "What's the food I absolutely hate?", answer: ["kimchi", "paa ng manok"] },
   { question: "Do I believe in Ghosts?", answer: "no" },
-  { question: "One best friend or Large Group Friend?", answer: "one best friend" }
-];
-
+  { question: "One best friend or Large Group Friend?", answer: ["one best friend", "both", "Large Group Friend"] },
+  { question: "Extrovert or Introvert", answer: "Introvert" },
+  {question: "Who's my GOAT in Basketball", answer: "Michael Jordan"}
+  
 let currentQuestion = 0;
 let score = 0;
 let userName = "";
